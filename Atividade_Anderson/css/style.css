@@ -1,114 +1,197 @@
-  body {
+body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    color: #333;
+}
+body.login-page {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #6441A5, #2a73ff);
-    font-family: Arial, sans-serif;
-  }
-  
-  .container {
+}
+body.app-page {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #1a2c4e;
+    color: white;
+    padding: 20px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar h1 {
+    color: white;
+    text-align: center;
+}
+.sidebar .user-info {
+    text-align: center;
+    margin: 30px 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #4a627a;
+}
+.sidebar .user-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #bdc3c7;
+}
+.sidebar .user-info strong {
+    font-size: 16px;
+    word-break: break-all;
+}
+.sidebar .button-logout {
+    margin-top: auto;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+.content-wrapper {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.container, .form-container, .table-container {
     background: white;
     padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
     text-align: center;
-  }
-  
-  h1 {
-    color: rgb(51, 51, 51);
-    margin-bottom: 10px;
-    font-size: 28px;
-  }
-  
-  .subtitle {
-    color: rgb(102, 102, 102);
+}
+.form-container, .table-container {
+    max-width: none;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+h1, h2 {
+    color: #1a2c4e;
+    margin: 0 0 10px 0;
+}
+.subtitle {
+    color: #666;
     margin-bottom: 25px;
-    font-size: 14px;
-  }
-  
-  .form-group {
+}
+
+.form-group {
     margin-bottom: 15px;
-  }
-  
-  input {
+}
+input[type="email"], input[type="password"], input[type="text"], input[type="number"], input[type="url"] {
     width: 100%;
     padding: 12px;
     margin: 8px 0;
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     box-sizing: border-box;
     font-size: 14px;
     outline: none;
-    transition: border-color 0.3s;
-  }
-  
-  input:focus {
+    transition: all 0.3s;
+}
+input:focus {
     border-color: #6441A5;
-  }
-  
-  button {
+    box-shadow: 0 0 5px rgba(100, 65, 165, 0.2);
+}
+
+button {
     width: 100%;
     padding: 14px;
     background: linear-gradient(90deg, #6441A5, #2a73ff);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    margin: 20px 0;
+    margin-top: 10px;
     transition: opacity 0.2s;
-  }
-  
-  button:hover {
+}
+button:hover {
     opacity: 0.9;
-  }
-  
-  .links {
-    margin-top: 20px;
+}
+.button-secondary {
+    background: #6c757d;
+}
+.button-edit, .button-delete {
+    padding: 8px 12px;
+    font-size: 12px;
+    width: auto;
+    margin: 0 5px 0 0;
+}
+.button-edit {
+    background: #ffc107;
+}
+.button-delete {
+    background: #dc3545;
+}
+.button-logout {
+    background: #dc3545;
+    width: 100%;
+    padding: 10px 20px;
     font-size: 14px;
-  }
-  
-  a {
+}
+
+.links {
+    margin-top: 20px;
+}
+.links a {
     color: #2a73ff;
     text-decoration: none;
-    margin: 0 5px;
-  }
-  
-  a:hover {
+    cursor: pointer;
+}
+.links a:hover {
     text-decoration: underline;
-  }
+}
 
-  .error-message {
-    color: #ff4444;
+.error-message {
+    color: #dc3545;
     font-size: 12px;
-    margin-top: 5px;
-    display: none;
-  }
-
-  .success-message {
-    color: #00C851;
+    margin-top: 10px;
+    min-height: 15px;
+}
+.success-message {
+    color: #28a745;
     font-size: 14px;
     margin-top: 10px;
-    display: none;
-  }
+    min-height: 15px;
+}
 
-  .password-requirements {
+.table-wrapper {
+    overflow-x: auto;
+}
+#vehicleTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+#vehicleTable th, #vehicleTable td {
+    padding: 12px;
+    border: 1px solid #ddd;
     text-align: left;
-    font-size: 12px;
-    color: #666;
-    margin: 10px 0;
-    padding-left: 15px;
-  }
+}
+#vehicleTable th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+#vehicleTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+#vehicleTable tbody tr:hover {
+    background-color: #e9ecef;
+}
 
-  .password-requirements li {
-    margin: 5px 0;
-  }
-
-  .password-requirements li.valid {
-    color: #00C851;
-  }
+.vehicle-photo {
+    width: 120px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+    background-color: #e9ecef;
+}

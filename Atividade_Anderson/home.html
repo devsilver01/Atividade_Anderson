@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Sistema de Veículos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h1>Veículos</h1>
+        <div class="user-info">
+            <p>Bem-vindo,</p>
+            <strong id="userEmail"></strong>
+        </div>
+        <button id="logoutButton" class="button-logout">Sair</button>
+    </div>
+
+    <div class="main-content">
+        <div class="content-wrapper">
+            <h2>Gerenciamento de Veículos</h2>
+            <div class="form-container">
+                <form id="vehicleForm">
+                    <input type="hidden" id="vehicleId">
+                    <div class="form-group">
+                        <input type="text" id="vehicleBrand" placeholder="Marca do Veículo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="vehicleModel" placeholder="Modelo do Veículo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="vehicleYear" placeholder="Ano do Veículo" required min="1900" max="2099">
+                    </div>
+                    <div class="form-group">
+                        <input type="url" id="vehicleImageUrl" placeholder="URL da Imagem do Veículo">
+                    </div>
+                    <button type="submit" id="formButton">Cadastrar Veículo</button>
+                    <button type="button" id="cancelEditButton" style="display: none;" class="button-secondary">Cancelar Edição</button>
+                </form>
+            </div>
+
+            <div class="table-container">
+                <h2>Veículos Cadastrados</h2>
+                <div class="table-wrapper">
+                    <table id="vehicleTable">
+                        <thead>
+                            <tr>
+                                <th>Foto</th>
+                                <th>Marca</th>
+                                <th>Modelo</th>
+                                <th>Ano</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
